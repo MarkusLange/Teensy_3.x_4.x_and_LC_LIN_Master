@@ -8,7 +8,7 @@ Testet on:
 | Teensy 3.0 | x | x | x | - | - | - |
 | Teensy 3.1 | x | x | x | - | - | - |
 | Teensy 3.2 | x | x | x | - | - | - |
-| Teensy LC | x | x | x |  |  |  |
+| Teensy LC | x | x | x | - | - | - |
 | Teensy 3.5 |  |  |  |  |  |  |
 | Teensy 3.6 |  |  |  |  |  |  |
 
