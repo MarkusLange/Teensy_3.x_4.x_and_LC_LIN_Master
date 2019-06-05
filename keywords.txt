@@ -1,0 +1,35 @@
+#######################################
+# Syntax Coloring Map For OneWire
+#######################################
+
+#######################################
+# DataTypes (KEYWORD1)
+#######################################
+
+LIN	KEYWORD1
+lin	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+send_break	KEYWORD2
+order	KEYWORD2
+response	KEYWORD2
+addrParity	KEYWORD2
+dataChecksum	KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+lin1x	LITERAL1
+lin2x	LITERAL1
