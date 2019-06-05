@@ -1,7 +1,7 @@
 #include "lin_bus.h"
 
 #define SET_LED_CONTROL 0x23
-#define SET_LED_COLOUR  0x24
+#define COMMAND_FRAME   0x3c
 
 int lin_cs = 23;
 
@@ -22,7 +22,7 @@ void get_nvc7430_full_status() {
   lin.order(0x3c, rx_buffer, 8);
 
   Serial.print("CRC: ");
-  Serial.println(lin.response(0x3d, lin_data, len),HEX);
+  Serial.println(lin.response(COMMAND_FRAME, lin_data, len),HEX);
 }
 
 void setup() {
@@ -54,7 +54,7 @@ void frame() {
   for (int i=0; i<len; i++) {
     if (lin_data[i] < 16)
       Serial.print("0");
-
+    
     Serial.print(lin_data[i], HEX);
     Serial.print(" ");
   }
