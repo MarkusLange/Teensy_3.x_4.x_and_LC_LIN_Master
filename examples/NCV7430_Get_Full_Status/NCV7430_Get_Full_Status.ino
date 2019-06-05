@@ -11,7 +11,7 @@ LIN lin(&Serial1, 19200);
 uint8_t lin_data[len];
 
 void init_ncv7430(void) {
-  uint8_t control_buffer[] = {0xc0, 0x00, 0x00, 0x7f, 0};
+  uint8_t control_buffer[] = {0xc0, 0x00, 0x00, 0x7f};
   
   lin.order(SET_LED_CONTROL, control_buffer, 4);
 }
