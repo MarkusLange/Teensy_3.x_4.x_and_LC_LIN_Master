@@ -27,6 +27,15 @@ Baudrates:
 
 You can also set the Breakbit value, 13 Bit is the Standard value, depending on the Teensy Model you can set it between 10 and 16
 
+| Modell |  |  |  |  |  |  |  |
+|----------------------------|----|----|----|----|----|----|----|
+| Teensy 3.0 - 3.2 | 10 | 11 | 12 | 13 | 14 |  |  |
+| Teensy LC Serial1 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy LC Serial2/3 | 10 | 11 | 12 | 13 | 14 | 15 |  |
+| Teensy 3.5 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy 3.6 Serial1/2/3/4/5 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy 3.6 Serial6 | 10 | 11 | 12 | 13 | 14 | 15 |  |
+
 Example:
 Constructor
 ```c++
