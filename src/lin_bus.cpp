@@ -224,7 +224,7 @@ void LIN::breaklength_LC(uint8_t length, HardwareSerial* stream) {
       (*PortRegister_S2)  |= UART_S2_BRK13;
       (*PortRegister_C1)  |= UART_C1_M;
       (*PortRegister_BDH) |= UART_BDH_SBNS;
-      if (stream == &Serial1) {
+      if (stream == &Serial1)
         (*PortRegister_C4)  &= ~UART_C4_M10;
       break;
     case 16:
