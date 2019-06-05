@@ -293,7 +293,7 @@ void LIN::send_break() {
   //UART0_C2 |= UART_C2_SBK;
   //UART0_C2 &= ~UART_C2_SBK;
 
-#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MK64FX512__) // Teensy 3.0 & 3.1 & 3.2 & 3.5
+#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MK64FX512__) || defined(__MKL26Z64__) // Teensy 3.0 & 3.1 & 3.2 & 3.5 LC
   (*PortRegister_C2) |= UART_C2_SBK;
   (*PortRegister_C2) &= ~UART_C2_SBK;
 #elif defined(__MK66FX1M0__) // Teensy 3.6

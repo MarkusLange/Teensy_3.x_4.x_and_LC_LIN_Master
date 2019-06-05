@@ -1,7 +1,8 @@
 #include "lin_bus.h"
 
-#define SET_LED_CONTROL 0x23
-#define COMMAND_FRAME   0x3c
+#define SET_LED_CONTROL         0x23
+#define DIAGNOSTIC_FRAME_MASTER 0x3c
+#define DIAGNOSTIC_FRAME_SLAVE  0x3d
 
 int lin_cs = 23;
 
@@ -19,10 +20,10 @@ void init_ncv7430(void) {
 void get_nvc7430_full_status() {
   uint8_t rx_buffer[] = {0x80, 0x81, 0xc0, 0xff, 0xff, 0xff, 0xff, 0xff};
   
-  lin.order(0x3c, rx_buffer, 8);
+  lin.order(DIAGNOSTIC_FRAME_MASTER, rx_buffer, 8);
 
   Serial.print("CRC: ");
-  Serial.println(lin.response(COMMAND_FRAME, lin_data, len),HEX);
+  Serial.println(lin.response(DIAGNOSTIC_FRAME_SLAVE, lin_data, len),HEX);
 }
 
 void setup() {
