@@ -20,10 +20,10 @@ Basic
 ```c++
 LIN lin(&Serial Port, Baudrate);
 ```
-Baudrate:
- 9600 low Baudrate
-10400 low Baudrate US
-19200 high Baudrate
+Baudrates:  
+  9600 low Baudrate  
+10400 low Baudrate US  
+19200 high Baudrate  
 
 You can also set the Breakbit value, 13 Bit is the Standard value, depending on the Teensy Model you can set it between 10 and 16
 
