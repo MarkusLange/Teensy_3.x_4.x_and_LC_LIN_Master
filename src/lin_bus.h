@@ -46,7 +46,7 @@ private:
   int addrParity(int PID);
   volatile byte dataChecksum (volatile byte* message, int length, uint16_t sum);
   void write(byte PID, byte* message, int length, int checksumtype = 1);
-  byte read(byte PID, byte message[], int length, int checksumtype = 1);
+  byte read(byte PID, byte* message, int length, int checksumtype = 1);
 };
 
 #endif
