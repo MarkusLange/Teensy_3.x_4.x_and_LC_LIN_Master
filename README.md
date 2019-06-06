@@ -76,6 +76,10 @@ and 0 if the expected CRC from the frame is not transmitted.
 lin.order and lin.response calculates the CRC based on Lin 1.x standard checksum if needed you 
 change it to the enhanced checksum.
 
+Checksum Typs:  
+_Standard Checksum_ Lin 1.x  
+_Enhanced Checksum_ Lin 2.x  
+
 ```c++
 lin.order(ID, array, array length, lin2x);
 
