@@ -73,7 +73,7 @@ lin.response(ID, array, array length);
 lin.response returns the CRC from the frame, if the transmission is correct,
 and -1 if the expected CRC from the frame is not transmitted.
 
-lin.order and lin.response calculates the CRC based on Lin 1.x standard checksum if needed you 
+lin.order and lin.response calculates the CRC based on Lin 1.x standard checksum if needed you can
 change it to the enhanced checksum.
 
 Checksum Typs:  
