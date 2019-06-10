@@ -381,5 +381,5 @@ byte LIN::read(byte PID, byte* data, int length, int checksumtype) {
   if (CRC == tmp[length+3])
     return CRC;
   else
-    return 0;
+    return -1;
 }
