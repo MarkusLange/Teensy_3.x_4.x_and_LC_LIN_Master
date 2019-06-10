@@ -338,7 +338,7 @@ void LIN::order(byte PID, byte* message, int length, int checksumtype) {
   write(PID, message, length, checksumtype);
 }
 
-byte LIN::response(byte PID, byte message[], int length, int checksumtype) {
+int LIN::response(byte PID, byte message[], int length, int checksumtype) {
   //_stream->clear(); does not exist, this does the same!
   while(_stream->available() > 0) {
     _stream->read();
@@ -348,7 +348,7 @@ byte LIN::response(byte PID, byte message[], int length, int checksumtype) {
   return read(PID, message, length, checksumtype);
 }
 
-byte LIN::read(byte PID, byte* data, int length, int checksumtype) {
+int LIN::read(byte PID, byte* data, int length, int checksumtype) {
   byte CRC, send_pid;
   // +3 for Break, Sync and CRC after the Data
   byte tmp[length+3];
