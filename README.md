@@ -14,13 +14,10 @@ Testet on:
 | Teensy 4.0 | - | - | - | - | - | - | - | / |
 | Teensy 4.1 | - | - | - | - | - | - | - | - |
 
-Legende:
-
-x tested
-
-\- not tested
-
-/ not available
+Legend:  
+x tested  
+\- not tested  
+/ not available  
 
 Constructor
 ```c++
