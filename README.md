@@ -1,16 +1,26 @@
-# LIN Master for Teensy 3.x
-LIN Master for Teensy 3.x for all Serials incl. LPUART0 on Teensy 3.6
+# LIN Master for Teensy 3.x and 4.x
+LIN Master for Teensy 3.x and 4.x for all Serials incl. LPUART0 on Teensy 3.6
 
 Testet on:
 
-| Modell |Serial 1 |Serial 2 |Serial 3 |Serial 4 |Serial 5 |Serial 6 |
-|------------|---|---|---|---|---|---|
-| Teensy 3.0 | x | x | x | - | - | - |
-| Teensy 3.1 | x | x | x | - | - | - |
-| Teensy 3.2 | x | x | x | - | - | - |
-| Teensy LC | x | x | x | - | - | - |
-| Teensy 3.5 |  |  |  |  |  |  |
-| Teensy 3.6 |  |  |  |  |  |  |
+| Modell |Serial 1 |Serial 2 |Serial 3 |Serial 4 |Serial 5 |Serial 6 |Serial 7 |Serial 8 |
+|------------|---|---|---|---|---|---|---|---|
+| Teensy 3.0 | x | x | x | / | / | / | / | / |
+| Teensy 3.1 | x | x | x | / | / | / | / | / |
+| Teensy 3.2 | x | x | x | / | / | / | / | / |
+| Teensy LC | x | x | x | / | / | / | / | / |
+| Teensy 3.5 | - | - | - | - | - | - | / | / |
+| Teensy 3.6 | - | - | - | - | - | - | / | / |
+| Teensy 4.0 | - | - | - | - | - | - | - | / |
+| Teensy 4.1 | - | - | - | - | - | - | - | - |
+
+Legende:
+
+x tested
+
+\- not tested
+
+/ not available
 
 Constructor
 ```c++
@@ -25,16 +35,17 @@ Baudrates:
 10400 low Baudrate US  
 19200 high Baudrate  
 
-You can also set the Breakbit value, 13 Bit is the Standard value, depending on the Teensy Model you can set it between 10 and 16
+You can also set the Breakbit value, 13 Bit is the Standard value, depending on the Teensy Model you can set it between 9 and 16
 
-| Modell |  |  |  |  |  |  |  |
-|----------------------------|----|----|----|----|----|----|----|
-| Teensy 3.0 - 3.2 | 10 | 11 | 12 | 13 | 14 |  |  |
-| Teensy LC Serial1 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
-| Teensy LC Serial2/3 | 10 | 11 | 12 | 13 | 14 | 15 |  |
-| Teensy 3.5 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
-| Teensy 3.6 Serial1/2/3/4/5 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
-| Teensy 3.6 Serial6 | 10 | 11 | 12 | 13 | 14 | 15 |  |
+| Modell |  |  |  |  |  |  |  |  |
+|----------------------------|----|----|----|----|----|----|----|----|
+| Teensy 3.0 - 3.2 |  | 10 | 11 | 12 | 13 | 14 |  |  |
+| Teensy LC Serial1 |  | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy LC Serial2/3 |  | 10 | 11 | 12 | 13 | 14 | 15 |  |
+| Teensy 3.5 |  | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy 3.6 Serial1/2/3/4/5 |  | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| Teensy 3.6 Serial6 |  | 10 | 11 | 12 | 13 | 14 | 15 |  |
+| Teensy 4.0 - 4.1 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |  |
 
 Example:
 Constructor
