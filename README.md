@@ -1,5 +1,5 @@
-# LIN Master for Teensy 3.x and 4.x
-LIN Master for Teensy 3.x and 4.x for all Serials incl. LPUART0 on Teensy 3.6
+# LIN Master for Teensy 3.x, 4.x and LC
+LIN Master for Teensy 3.x, 4.x and LC for all Serials incl. LPUART0 on Teensy 3.6
 
 Testet on:
 
