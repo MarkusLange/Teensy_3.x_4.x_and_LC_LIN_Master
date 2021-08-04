@@ -505,8 +505,8 @@ int LIN::read(byte PID, byte* data, int length, int checksumtype) {
   else
     CRC = dataChecksum(data, length, send_pid);
   
-  Serial.println(CRC,HEX);
-  Serial.println(tmp[length+3],HEX);
+  //Serial.println(CRC,HEX);
+  //Serial.println(tmp[length+3],HEX);
   
   if (CRC == tmp[length+3])
     return CRC;
