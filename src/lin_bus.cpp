@@ -368,6 +368,8 @@ volatile byte LIN::dataChecksum(volatile byte* message, int length, uint16_t sum
   return (~sum);
 }
 
+
+
 void LIN::send_break() {  
   // Toggle SBK to send Break
   //UART0_C2 |= UART_C2_SBK;
@@ -501,9 +503,10 @@ int LIN::read(byte PID, byte* data, int length, int checksumtype) {
   if (checksumtype == 1)
     CRC = dataChecksum(data, length, 0);
   else
-    CRC = dataChecksum(data, length, PID);
+    CRC = dataChecksum(data, length, send_pid);
   
   //Serial.println(CRC,HEX);
+  //Serial.println(tmp[length+3],HEX);
   
   if (CRC == tmp[length+3])
     return CRC;
