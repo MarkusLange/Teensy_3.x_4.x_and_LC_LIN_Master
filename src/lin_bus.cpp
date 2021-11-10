@@ -26,9 +26,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     UART0_RWFIFO = 1;
 #endif // HAS_KINETISK_UART0_FIFO
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART1_STAT;
-    PortRegister_LPUART_BAUD = &LPUART1_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART1_CTRL;
+    PortRegister_LPUART_STAT = &LPUART6_STAT;
+    PortRegister_LPUART_BAUD = &LPUART6_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART6_CTRL;
 #endif
   }
 
@@ -43,9 +43,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     UART1_RWFIFO = 1;
 #endif // HAS_KINETISK_UART0_FIFO
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART2_STAT;
-    PortRegister_LPUART_BAUD = &LPUART2_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART2_CTRL;
+    PortRegister_LPUART_STAT = &LPUART4_STAT;
+    PortRegister_LPUART_BAUD = &LPUART4_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART4_CTRL;
 #endif
   }
   
@@ -57,9 +57,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     PortRegister_S2 = &UART2_S2;
     PortRegister_BDH = &UART2_BDH;
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART3_STAT;
-    PortRegister_LPUART_BAUD = &LPUART3_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART3_CTRL;
+    PortRegister_LPUART_STAT = &LPUART2_STAT;
+    PortRegister_LPUART_BAUD = &LPUART2_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART2_CTRL;
 #endif
   }
 
@@ -72,9 +72,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     PortRegister_S2 = &UART3_S2;
     PortRegister_BDH = &UART3_BDH;
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART4_STAT;
-    PortRegister_LPUART_BAUD = &LPUART4_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART4_CTRL;
+    PortRegister_LPUART_STAT = &LPUART3_STAT;
+    PortRegister_LPUART_BAUD = &LPUART3_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART3_CTRL;
 #endif
   }
   
@@ -86,9 +86,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     PortRegister_S2 = &UART4_S2;
     PortRegister_BDH = &UART4_BDH;
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART5_STAT;
-    PortRegister_LPUART_BAUD = &LPUART5_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART5_CTRL;
+    PortRegister_LPUART_STAT = &LPUART8_STAT;
+    PortRegister_LPUART_BAUD = &LPUART8_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART8_CTRL;
 #endif
   }
   
@@ -104,9 +104,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
     PortRegister_LPUART_BAUD = &LPUART0_BAUD;
     PortRegister_LPUART_CTRL = &LPUART0_CTRL;
 #elif defined(__IMXRT1062__) // Teensy 4.0 & 4.1
-    PortRegister_LPUART_STAT = &LPUART6_STAT;
-    PortRegister_LPUART_BAUD = &LPUART6_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART6_CTRL;
+    PortRegister_LPUART_STAT = &LPUART1_STAT;
+    PortRegister_LPUART_BAUD = &LPUART1_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART1_CTRL;
 #endif
   }
 #endif
@@ -121,9 +121,9 @@ LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
 
 #if defined(__IMXRT1062__) && defined(ARDUINO_TEENSY41) // Teensy 4.1
   if (stream == &Serial8) {
-    PortRegister_LPUART_STAT = &LPUART8_STAT;
-    PortRegister_LPUART_BAUD = &LPUART8_BAUD;
-    PortRegister_LPUART_CTRL = &LPUART8_CTRL;
+    PortRegister_LPUART_STAT = &LPUART5_STAT;
+    PortRegister_LPUART_BAUD = &LPUART5_BAUD;
+    PortRegister_LPUART_CTRL = &LPUART5_CTRL;
   }
 #endif
 
