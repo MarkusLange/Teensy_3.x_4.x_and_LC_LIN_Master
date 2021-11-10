@@ -380,7 +380,7 @@ void LIN::send_break() {
     (*PortRegister_LPUART_CTRL) |= LPUART_CTRL_SBK;
     (*PortRegister_LPUART_CTRL) &= ~LPUART_CTRL_SBK;
   } else {
-	(*PortRegister_C2) |= UART_C2_SBK;
+    (*PortRegister_C2) |= UART_C2_SBK;
     (*PortRegister_C2) &= ~UART_C2_SBK;
   }
 #elif defined (__MK20DX128__) || defined(__MK20DX256__) || defined(__MK64FX512__) || defined(__MKL26Z64__) || defined(__MK66FX1M0__) // Teensy 3.0 & 3.1 & 3.2 & 3.5
@@ -491,14 +491,14 @@ int LIN::read(byte PID, byte* data, int length, int checksumtype) {
       i++;
     }
     if ( response_maximalspace < waiting ) {
-	  //Serial.println(waiting);
-	  break;
-	}
+      //Serial.println(waiting);
+      break;
+     }
   }
   //Serial.println(waiting);
   
   for (int i=3; i<length+3; i++)
-	data[i-3] = tmp[i];
+    data[i-3] = tmp[i];
   
   if (checksumtype == 1)
     CRC = dataChecksum(data, length, 0);
