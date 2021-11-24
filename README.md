@@ -11,8 +11,8 @@ Testet on:
 | Teensy LC | x | x | x | / | / | / | / | / |
 | Teensy 3.5 | - | - | - | - | - | - | / | / |
 | Teensy 3.6 | - | - | - | - | - | - | / | / |
-| Teensy 4.0 | - | - | - | - | - | - | - | / |
-| Teensy 4.1 | - | - | - | - | - | - | - | - |
+| Teensy 4.0 | x | x | x | x | x | x | x | / |
+| Teensy 4.1 | x | x | x | x | x | x | x | x |
 
 Legend:  
 x tested  
