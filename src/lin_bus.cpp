@@ -1,8 +1,6 @@
 #include "Arduino.h"
 #include "lin_bus.h"
 
-byte SYNC = 0x55;
-
 LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
   (*stream).begin(baudrate);
   this->_stream = stream;
@@ -368,8 +366,6 @@ volatile byte LIN::dataChecksum(volatile byte* message, int length, uint16_t sum
   return (~sum);
 }
 
-
-
 void LIN::send_break() {  
   // Toggle SBK to send Break
   //UART0_C2 |= UART_C2_SBK;
@@ -420,7 +416,7 @@ void LIN::send_break() {
 void LIN::write(byte PID, byte* message, int length, int checksumtype) {
   byte CRC, send_pid;
   
-  send_pid = ((PID&0x3F) | addrParity(PID)<<6);
+  send_pid = ((PID&0x3F) | (addrParity(PID)<<6));
   
   if (checksumtype == 1)
     CRC = dataChecksum(message, length, 0);
@@ -430,12 +426,11 @@ void LIN::write(byte PID, byte* message, int length, int checksumtype) {
   _stream->write(send_pid);
   delayMicroseconds(breakfieldinterbytespace);
   
-  for (int i=0; i<length; i++)
+  for (int i = 0; i < length; i++)
     _stream->write(message[i]);
   
   _stream->write(CRC);
   _stream->flush();
-  //Serial.println(CRC, HEX);
 }
 
 void LIN::order(byte PID, byte* message, int length, int checksumtype) {
@@ -455,17 +450,21 @@ int LIN::response(byte PID, byte message[], int length, int checksumtype) {
 
 int LIN::read(byte PID, byte* data, int length, int checksumtype) {
   byte CRC, send_pid;
-  // +3 for Break, Sync and CRC after the Data
-  byte tmp[length+3];
+  // +4 for Break, Sync, PID and CRC after the Data
+  byte tmp[length+4];
   uint8_t i = 0;
   
-  send_pid = ((PID&0x3F) | addrParity(PID)<<6);
+  send_pid = ((PID&0x3F) | (addrParity(PID)<<6));
   
   _stream->write(send_pid);
   _stream->flush();
-  //Serial.println("-----------------------");
-    
-/*
+  
+#if defined(__IMXRT1062__) // Teensy 4.0 & 4.1 clear Uart Buffer
+  _stream->read();
+  //Serial.println(_stream->read(),HEX);
+#endif
+  
+  /*
   unsigned long actuall = micros();
   
   while ( i < (length+4) ) {
@@ -478,26 +477,23 @@ int LIN::read(byte PID, byte* data, int length, int checksumtype) {
 	  break;
 	}
   }
-   */
+  */
   
   elapsedMicros waiting;
-  
-  //Serial.println(response_maximalspace);
   //Serial.println(waiting);
+  
   while ( i < (length+4) ) {
     if ( _stream->available() ) {
       tmp[i] = _stream->read();
-      //Serial.println(tmp[i], HEX);
       i++;
     }
     if ( response_maximalspace < waiting ) {
-      //Serial.println(waiting);
       break;
      }
   }
   //Serial.println(waiting);
   
-  for (int i=3; i<length+3; i++)
+  for ( i = 3; i < (length+3); i++)
     data[i-3] = tmp[i];
   
   if (checksumtype == 1)
@@ -505,8 +501,20 @@ int LIN::read(byte PID, byte* data, int length, int checksumtype) {
   else
     CRC = dataChecksum(data, length, send_pid);
   
-  //Serial.println(CRC,HEX);
-  //Serial.println(tmp[length+3],HEX);
+  /*
+  Serial.println("--------tmp------------");
+  for (i = 0; i < (length+4); i++)
+    Serial.println(tmp[i], HEX);
+
+  Serial.println("--------data-----------");
+  for (i = 3; i < (length+3); i++)
+	Serial.println(data[i-3],HEX);
+  
+  Serial.println("--------crc------------");
+  Serial.println(CRC,HEX);
+  Serial.println(tmp[length+3],HEX);
+  Serial.println("-----------------------");
+  */
   
   if (CRC == tmp[length+3])
     return CRC;

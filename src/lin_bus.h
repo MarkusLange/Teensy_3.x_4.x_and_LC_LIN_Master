@@ -6,18 +6,19 @@
 class LIN
 {
 public:
-  //Tbits Header
+  //Tbits Header bits
   #define breakdelimiter              1
   #define syncfieldPIDinterbytedelay  0
   #define breakfieldinterbytedelay    2
   
-  //Tbit Response
+  //Tbit Response bits
   #define responsedelay               8
   #define interbytedelay              0
   //LIN supports from 2-8bit Data and an additional CRC bit
   #define response_nominal     (8+1)*10
   #define response_max_factor       1.4  
   
+  byte SYNC = 0x55;
   unsigned long Tbit;
   int responsespace;
   int interbytespace;
@@ -45,12 +46,12 @@ public:
   
   // Constructor for Node
   LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters = 13);
-  void send_break();
   void order(byte PID, byte* message, int length, int checksumtype = 1);
   int response(byte PID, byte* message, int length, int checksumtype = 1);
   
 private:
   Stream* _stream;
+  void send_break();
   void breaklength(uint8_t length);
   void breaklength_35(uint8_t length);
   void breaklength_LP(uint8_t length);
