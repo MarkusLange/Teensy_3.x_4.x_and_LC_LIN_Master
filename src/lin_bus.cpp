@@ -421,7 +421,7 @@ void LIN::write(byte PID, byte* message, int length, int checksumtype) {
   if (checksumtype == 1)
     CRC = dataChecksum(message, length, 0);
   else
-    CRC = dataChecksum(message, length, PID);
+    CRC = dataChecksum(message, length, send_pid);
   
   _stream->write(send_pid);
   delayMicroseconds(breakfieldinterbytespace);
