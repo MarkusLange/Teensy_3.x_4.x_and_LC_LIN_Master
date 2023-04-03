@@ -45,7 +45,9 @@ public:
   #define lin2x 2
   
   // Constructor for Node
-  LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters = 13);
+  LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters = 13) {begin(stream, baudrate, break_characters);}
+  LIN() {_stream = 0; }
+  void begin(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters = 13);
   void order(byte PID, byte* message, int length, int checksumtype = 1);
   int response(byte PID, byte* message, int length, int checksumtype = 1);
   

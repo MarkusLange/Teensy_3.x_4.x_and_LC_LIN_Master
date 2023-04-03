@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "lin_bus.h"
 
-LIN::LIN(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
+void LIN::begin(HardwareSerial* stream, uint16_t baudrate, uint8_t break_characters) {
   (*stream).begin(baudrate);
   this->_stream = stream;
   
